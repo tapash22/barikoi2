@@ -84,8 +84,8 @@ export default function App() {
             </div>
             <div className={`py-3 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
               <form onSubmit={addPosts}>
-                <div className={`my-2 flex py-2 shadow-lg rounded-lg ${isDarkMode ? 'shadow-white' : 'shadow-gray-400'} px-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                  <input value={name} onChange={changeValue} placeholder="search" className={`text-lg font-medium w-full h-10 px-2 py-1 focus:outline-none ${isDarkMode ? 'text-white' : 'text-black'}`} />
+                <div className={`my-2 flex py-2 shadow-sm rounded-lg ${isDarkMode ? 'shadow-white' : 'shadow-gray-400'} px-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                  <input value={name} onChange={changeValue} placeholder="search" className={`text-lg font-medium w-full h-10 px-2 py-1 focus:outline-none ${isDarkMode ? 'bg-gray-800' : 'bg-white'} ${isDarkMode ? 'text-white' : 'text-black'}`} />
                   <BsSearch onClick={onView} className={`bg-green-500 px-2 font-bold text-3xl h-10 ${isDarkMode ? 'text-white' : 'text-black'}`} />
                 </div>
               </form>
@@ -97,6 +97,8 @@ export default function App() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
+
+              
               <MarkerClusterGroup
                 chunkedLoading
                 iconCreateFunction={createClusterCustomIcon}
