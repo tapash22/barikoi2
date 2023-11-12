@@ -18,12 +18,12 @@ input::placeholder{
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
-    background: red;
+    background: white;
     transform: translate(-25%,-25%);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     font-weight: 700;
-    color: #fff;
+    color: #000;
 }
