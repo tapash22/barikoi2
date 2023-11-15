@@ -1,6 +1,8 @@
-import { MeshWobbleMaterial, OrbitControls } from "@react-three/drei";
+import { MeshWobbleMaterial, OrbitControls,useHelper } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useControls } from "leva";
 import { useRef, useState } from "react";
+import { DirectionalLightHelper } from "three";
 
 // for create cube
 // const Cube = ({position, size, color}) =>{
@@ -61,13 +63,23 @@ import { useRef, useState } from "react";
 //     )
 // }
 
-const Torusknot =({position,size,color}) => {
+const Torusknot =({position,size}) => {
     const ref = useRef();
+
+    const {color,radius} = useControls({
+      color:"blue",
+      radius:{
+        value:5,
+        max:5,
+        min:0,
+        step:0.5
+      }
+    })
     return (
         <mesh position={position} ref={ref}>
-            <torusKnotGeometry args={size} />
+            <torusKnotGeometry args={[radius, ...size]} />
             {/* this use for animate  */}
-            <MeshWobbleMaterial  factor={5} speed={5} /> 
+            <MeshWobbleMaterial  factor={5} speed={5} color={color} /> 
             {/* this use for strict view */}
             {/* <meshStandardMaterial color={color}  /> */}
         </mesh>
@@ -75,9 +87,22 @@ const Torusknot =({position,size,color}) => {
 }
 
 const Sceen = () =>{
+
+  const directionalRef = useRef()
+
+  const {lightColor, lightIntensity} = useControls ({
+    lightColor:"white",
+    lightIntensity:{
+      value:0.5,
+      min: 0,
+      max:5
+    }
+  })
+
+  useHelper(directionalRef, DirectionalLightHelper, 0.5, "white")
     return (
         <>
-        <directionalLight position={[0, 0, 2]} />
+        <directionalLight position={[0, 1, 2]} intensity={lightIntensity} ref={directionalRef} color={lightColor}  />
         <ambientLight />
         {/* <group position={[0,-1,0]}>
         <Cube position={[1,0,0]} size={[1,1,1]} color={"orange"}  />
@@ -91,7 +116,7 @@ const Sceen = () =>{
         <Cube position={[-1,2,0]} size={[2,2,1]} color={"blue"}  /> */}
         {/* <Sphere position={[0, 0, 0]} size={[2, 20, 20]} color={"yellow"} />
         <Torus position={[2,0,0]} size={[0.8,0.1,30,30]} color={"blue"}  /> */}
-        <Torusknot position={[0,0,0]} size={[0.8,0.1,30,30]} color={"blue"}  />
+        <Torusknot position={[0,0,0]} size={[0.1,1000,50]} color={"blue"}  />
         <OrbitControls enableZoom={false}  />
         </>
     )
@@ -99,7 +124,7 @@ const Sceen = () =>{
 
 function Firstview() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center h-screen">
       <Canvas>
       <Sceen  />
       </Canvas>

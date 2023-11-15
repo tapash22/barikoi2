@@ -31,3 +31,10 @@ input::placeholder{
 body{
     background:#000;
 }
+.background-image{
+    background-image: url('./assets/back.jpg');
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    opacity: 0.7;
+}
