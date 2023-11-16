@@ -1,5 +1,5 @@
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
-import { Material } from "three";
+// import { Material } from "three";
 function Animatedspear(){
 
     return (
