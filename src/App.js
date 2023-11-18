@@ -2,15 +2,15 @@
 import React from 'react';
 // import Firstview from './animation/Fristview';
 import './App.css'
-import Secondview from './animation/Secondview';
-// import Map from './components/Map';
+// import Secondview from './animation/Secondview';
+import Map from './components/Map';
 
 function App() {
   return (
     <div className="App">
-      <Secondview  />
+      {/* <Secondview  /> */}
      {/* <Firstview  /> */}
-      {/* <Map /> */}
+      <Map />
     </div>
   );
 }
