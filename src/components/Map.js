@@ -29,10 +29,10 @@ const bounds = [
   [23.829551292122613, 90.4240742263061],
 ]
 
-const center = [23.831082, 90.424521]
+const center = [23.8326700001252, 90.42364774346298]
 // [23.831082528393814, 90.42452189382446]
 
-const fillBlueOptions = { fillColor: 'blue' }
+// const fillBlueOptions = { fillColor: 'blue' }
 const blackOptions = { color: 'red' }
 const purpleOptions = { color: 'purple' }
 
@@ -69,6 +69,30 @@ const polygon = [
   [23.82901975437455, 90.42373878065332],
   [23.829047513284955, 90.42757751551262]
 ]
+
+const hexagonCoordinates = [
+  [51.509, -0.08],
+  [51.503, -0.06],
+  [51.51, -0.047],
+  [51.509, -0.02],
+  [51.503, 0.0],
+  [51.51, 0.03],
+  [51.509, 0.06],
+  [51.503, 0.08],
+  [51.51, 0.047],
+];
+
+const pentagonCoordinates = [
+  [51.509, -0.08],
+  [51.503, -0.06],
+  [51.51, -0.02],
+  [51.507, 0.03],
+  [51.503, 0.08],
+  [51.509, 0.06],
+  [51.515, 0.03],
+  [51.51, -0.02],
+  [51.509, -0.08],
+];
 
 // markers
 const markers = [
@@ -129,6 +153,8 @@ export default function Map() {
     </SVGOverlay>
 
     <Polygon pathOptions={purpleOptions} positions={polygon} />
+    {/* <Polygon positions={hexagonCoordinates} color="blue" /> */}
+      <Polygon positions={pentagonCoordinates} color="red" />
         <CircleMarker center={[23.831082528393814, 90.42452189382446]} pathOptions={blackOptions} radius={20}>
       <Popup>Popup in CircleMarker</Popup>
     </CircleMarker>
