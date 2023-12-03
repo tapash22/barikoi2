@@ -10,7 +10,7 @@ import {
   CircleMarker,
   SVGOverlay,
   Polygon,
-  Tooltip 
+  Tooltip,
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
@@ -41,12 +41,12 @@ const bounds = [
 ];
 
 // const center = [23.8326700001252, 90.42364774346298];
-const center = [51.51, -0.1]
+const center = [23.829841, 90.416252];
 // [23.831082528393814, 90.42452189382446]
 
 // const fillBlueOptions = { fillColor: 'blue' }
 const blackOptions = { color: "red" };
-const purpleOptions = { color: "purple" };
+// const purpleOptions = { color: "purple" };
 
 // custom cluster icon
 const createClusterCustomIcon = function (cluster) {
@@ -82,116 +82,214 @@ const polygon = [
   [23.829047513284955, 90.42757751551262],
 ];
 
-// const hexagonCoordinates = [
-//   [51.509, -0.08],
-//   [51.503, -0.06],
-//   [51.51, -0.047],
-//   [51.509, -0.02],
-//   [51.503, 0.0],
-//   [51.51, 0.03],
-//   [51.509, 0.06],
-//   [51.503, 0.08],
-//   [51.51, 0.047],
-// ];
+const hexagonCoordinates = [
+  [51.509, -0.08],
+  [51.503, -0.06],
+  [51.51, -0.047],
+  [51.509, -0.02],
+  [51.503, 0.0],
+  [51.51, 0.03],
+  [51.509, 0.06],
+  [51.503, 0.08],
+  [51.51, 0.047],
+];
 
-// const pentagonCoordinates = [
-//   [51.509, -0.08],
-//   [51.503, -0.06],
-//   [51.51, -0.02],
-//   [51.507, 0.03],
-//   [51.503, 0.08],
-//   [51.509, 0.06],
-//   [51.515, 0.03],
-//   [51.51, -0.02],
-//   [51.509, -0.08],
-// ];
+const pentagonCoordinates = [
+  [51.509, -0.08],
+  [51.503, -0.06],
+  [51.51, -0.02],
+  [51.507, 0.03],
+  [51.503, 0.08],
+  [51.509, 0.06],
+  [51.515, 0.03],
+  [51.51, -0.02],
+  [51.509, -0.08],
+];
 
 // use all shape for use
 const shapes = [
   {
-    name: 'Place A',
-    type: 'triangle',
+    type: "rectangle",
+    name: "Plot1",
+    color: "violet",
     coordinates: [
-      [51.509, -0.08],
-      [51.503, -0.06],
-      [51.51, -0.047],
+      [23.831044, 90.417058],
+      [23.83125, 90.418619],
+      [23.830259, 90.41878],
+      [23.830043, 90.417229],
     ],
-    color: 'blue',
-    details: 'Details for Place A',
+    details: "Details for Place 1",
   },
   {
-    name: 'Place B',
-    type: 'rectangle',
+    type: "rectangle",
+    name: "Plot2",
+    color: "green",
     coordinates: [
-      [51.51, -0.1],
-      [51.51, -0.05],
-      [51.515, -0.05],
-      [51.515, -0.1],
+      [23.830874, 90.415831],
+      [23.831038, 90.417011],
+      [23.830028, 90.417184],
+      [23.829877, 90.416246],
     ],
-    color: 'green',
-    details: 'Details for Place B',
+    details: "Details for Place 2",
   },
   {
-    name: 'Place C',
-    type: 'pentagon',
+    type: "rectangle",
+    name: "Plot3",
+    color: "green",
     coordinates: [
-      [51.509, -0.08],
-      [51.503, -0.06],
-      [51.51, -0.02],
-      [51.507, 0.03],
-      [51.503, 0.08],
+      [23.829841, 90.416252],
+      [23.83004, 90.417707],
+      [23.829707, 90.417783],
+      [23.829521, 90.416367],
     ],
-    color: 'red',
-    details: 'Details for Place C',
+    details: "Details for Place 3",
   },
   {
-    name: 'Place D',
-    type: 'hexagon',
+    type: "rectangle",
+    name: "Plot4",
+    color: "yellow",
     coordinates: [
-      [51.509, -0.08],
-      [51.503, -0.06],
-      [51.51, -0.047],
-      [51.509, -0.02],
-      [51.503, 0.0],
-      [51.51, 0.03],
+      [23.829521, 90.416367],
+      [23.829707, 90.417783],
+      [23.82917, 90.416501],
     ],
-    color: 'purple',
-    details: 'Details for Place D',
+    details: "Details for Place 4",
   },
-  // Add more shapes as needed
+  {
+    type: "rectangle",
+    name: "Plot5",
+    color: "green",
+    coordinates: [
+      [23.829159, 90.416495],
+      [23.829707, 90.417783],
+      [23.829019, 90.417956],
+    ],
+    details: "Details for Place 6",
+  },
+  {
+    type: "rectangle",
+    name: "Plot6",
+    color: "red",
+    coordinates: [
+      [23.829159, 90.416495],
+      [23.829019, 90.417956],
+      [23.828832, 90.416648],
+    ],
+    details: "Details for Place 6",
+  },
+  {
+    type: "rectangle",
+    name: "Plot7",
+    color: "black",
+    coordinates: [
+      [23.828832, 90.416648],
+      [23.829019, 90.417956],
+      [23.828669, 90.418],
+      [23.828496, 90.416798],
+    ],
+    details: "Details for Place 7",
+  },
+  {
+    type: "rectangle",
+    name: "Plot8",
+    color: "violet",
+    coordinates: [
+      [23.830061, 90.41775],
+      [23.830219, 90.418789],
+      [23.829852, 90.418871],
+      [23.829718, 90.417815],
+    ],
+    details: "Details for Place 8",
+  },
+  {
+    type: "rectangle",
+    name: "Plot9",
+    color: "yellow",
+    coordinates: [
+      [23.829718, 90.417815],
+      [23.829852, 90.418871],
+      [23.829518, 90.418918],
+      [23.829377, 90.41789],
+    ],
+    details: "Details for Place 9",
+  },
+  {
+    type: "rectangle",
+    name: "Plot10",
+    color: "green",
+    coordinates: [
+      [23.829377, 90.41789],
+      [23.829518, 90.418918],
+      [23.829167, 90.418993],
+      [23.829036, 90.417944],
+    ],
+    details: "Details for Place 10",
+  },
+  {
+    type: "rectangle",
+    name: "Plot11",
+    color: "yellow",
+    coordinates: [
+      [23.829036, 90.417944],
+      [23.829167, 90.418993],
+      [23.828833, 90.419057],
+      [23.828679, 90.418033],
+    ],
+    details: "Details for Place 11",
+  },
 ];
 
 // markers
 const markers = [
   {
-    geocode: [23.79394065259921, 90.40658328041452],
+    geocode: [23.83125, 90.418619],
     popUp: "Hello, I am pop up 1",
   },
   {
-    geocode: [23.790720666256483, 90.40641161904219],
+    geocode: [23.831038, 90.417011],
     popUp: "Hello, I am pop up 2",
   },
   {
-    geocode: [23.78765767838045, 90.41044566129226],
+    geocode: [23.83004, 90.417707],
     popUp: "Hello, I am pop up 3",
   },
   {
-    geocode: [23.78860014387656, 90.40340754502617],
+    geocode: [23.829707, 90.417783],
     popUp: "Hello, I am pop up 4",
   },
   {
-    geocode: [23.78702936425326, 90.40615412698365],
+    geocode: [23.829707, 90.417783],
     popUp: "Hello, I am pop up 5",
   },
   {
-    geocode: [23.79574695146757, 90.41722628549984],
+    geocode: [23.829019, 90.417956],
+    popUp: "Hello, I am pop up 6",
+  },
+  {
+    geocode: [23.829019, 90.417956],
+    popUp: "Hello, I am pop up 6",
+  },
+  {
+    geocode: [23.830219, 90.418789],
+    popUp: "Hello, I am pop up 6",
+  },
+  {
+    geocode: [23.829852, 90.418871],
+    popUp: "Hello, I am pop up 6",
+  },
+  {
+    geocode: [23.829518, 90.418918],
+    popUp: "Hello, I am pop up 6",
+  },
+  {
+    geocode: [23.829167, 90.418993],
     popUp: "Hello, I am pop up 6",
   },
 ];
 
 export default function Map() {
   return (
-    <MapContainer center={center} zoom={13}>
+    <MapContainer center={center} zoom={12}>
       {/* OPEN STREEN MAPS TILES */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -212,7 +310,7 @@ export default function Map() {
         subdomains={["mt0", "mt1", "mt2", "mt3"]}
       /> */}
 
-{shapes.map((shape, index) => (
+      {shapes.map((shape, index) => (
         <Polygon key={index} positions={shape.coordinates} color={shape.color}>
           <Tooltip>{shape.name}</Tooltip>
           <Popup>
@@ -225,7 +323,7 @@ export default function Map() {
         </Polygon>
       ))}
 
-      <SVGOverlay attributes={{ stroke: "red" }} bounds={bounds}>
+      {/* <SVGOverlay attributes={{ stroke: "red" }} bounds={bounds}>
         <rect
           x="0"
           y="0"
@@ -238,20 +336,20 @@ export default function Map() {
         <text x="40%" y="50%" stroke="white">
           text
         </text>
-      </SVGOverlay>
+      </SVGOverlay> */}
 
-      <Polygon pathOptions={purpleOptions} positions={polygon} />
+      {/* <Polygon pathOptions={purpleOptions} positions={polygon} /> */}
       {/* <Polygon positions={hexagonCoordinates} color="blue" />
       <Polygon positions={pentagonCoordinates} color="red" /> */}
-      <CircleMarker
+      {/* <CircleMarker
         center={[23.831082528393814, 90.42452189382446]}
         pathOptions={blackOptions}
         radius={20}
       >
         <Popup>Popup in CircleMarker</Popup>
-      </CircleMarker>
+      </CircleMarker> */}
       <LocationMarker />
-      <Rectangle bounds={rectangle} pathOptions={blackOptions} />
+      {/* <Rectangle bounds={rectangle} pathOptions={blackOptions} /> */}
       <MarkerClusterGroup
         chunkedLoading
         iconCreateFunction={createClusterCustomIcon}
