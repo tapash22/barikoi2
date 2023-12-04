@@ -4,13 +4,16 @@ import React from 'react';
 import './App.css'
 // import Secondview from './animation/Secondview';
 import Map from './components/Map';
+import Home from './pages/Home';
+// import YourComponent from './components/YourComponent ';
 
 function App() {
   return (
     <div className="App">
       {/* <Secondview  /> */}
      {/* <Firstview  /> */}
-      <Map />
+    <Home  />
+      {/* <YourComponent  /> */}
     </div>
   );
 }

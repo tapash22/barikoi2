@@ -36,12 +36,24 @@ const rectangle = [
 ];
 
 const bounds = [
-  [23.831126672142275, 90.42474623462705],
-  [23.829551292122613, 90.4240742263061],
+  [23.834353934819745, 90.41425911995564],
+  [23.833120172879497, 90.41472878566378],
+  [23.832888841209144, 90.41470470024286],
+  [23.83145677882932, 90.41541522016026],
+  [23.829584057942153, 90.41595714215521],
+  [23.82830618586907, 90.41645089328425],
+  [23.82814094287159, 90.41819708630162],
+  [23.828845978194103, 90.41920867398063],
+  [23.830597533739237, 90.41887147808762],
+  [23.832371097331137, 90.41859449574694],
+  [23.835433466896678, 90.4181127872543],
+  [23.83609440052573, 90.41831751329622],
+  [23.835885105260516, 90.4163184233591],
+  [23.835433466958428, 90.41505393876031],
 ];
 
 // const center = [23.8326700001252, 90.42364774346298];
-const center = [23.829841, 90.416252];
+const center = [23.83231860424927, 90.41678760385615];
 // [23.831082528393814, 90.42452189382446]
 
 // const fillBlueOptions = { fillColor: 'blue' }
@@ -237,6 +249,150 @@ const shapes = [
     ],
     details: "Details for Place 11",
   },
+  {
+    type: "rectangle",
+    name: "Plot12",
+    color: "green",
+    coordinates: [
+      [23.830874, 90.415831],
+      [23.831038, 90.417011],
+      [23.831414, 90.416967],
+      [23.831228, 90.415722],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot13",
+    color: "green",
+    coordinates: [
+      [23.831228, 90.415722],
+      [23.831414, 90.416967],
+      [23.831758, 90.416897],
+      [23.831581, 90.415583],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot14",
+    color: "green",
+    coordinates: [
+      [23.83158136246301, 90.41558332682352],
+      [23.831758015497265, 90.41689760913162],
+      [23.832101506837578, 90.41682250726359],
+      [23.831919947251954, 90.41545458077967],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot15",
+    color: "green",
+    coordinates: [
+      [23.831919947251954, 90.41545458077967],
+      [23.832101506837578, 90.41682250726359],
+      [23.83247443924336, 90.41676886308774],
+      [23.832268345151665, 90.41530974150488],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot16",
+    color: "green",
+    coordinates: [
+      [23.832268, 90.415309],
+      [23.832474, 90.416768],
+      [23.832881, 90.416731],
+      [23.832626, 90.415164],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot17",
+    color: "green",
+    coordinates: [
+      [23.832626, 90.415164],
+      [23.832881, 90.416731],
+      [23.833239, 90.416666],
+      [23.832999, 90.415009],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot18",
+    color: "green",
+    coordinates: [
+      [23.832999, 90.415009],
+      [23.833239, 90.416666],
+      [23.833603, 90.416597],
+      [23.833333, 90.414885],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot19",
+    color: "green",
+    coordinates: [
+      [23.833333, 90.414885],
+      [23.833603, 90.416597],
+      [23.833951, 90.416554],
+      [23.833686, 90.414751],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot20",
+    color: "green",
+    coordinates: [
+      [23.833686, 90.414751],
+      [23.833951, 90.416554],
+      [23.834304, 90.416484],
+      [23.834039, 90.414617],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot21",
+    color: "green",
+    coordinates: [
+      [23.834039, 90.414617],
+      [23.834304, 90.416484],
+      [23.834653, 90.41642],
+      [23.834368, 90.414451],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot22",
+    color: "green",
+    coordinates: [
+      [23.834368, 90.414451],
+      [23.834653, 90.41642],
+      [23.834991, 90.416371],
+      [23.83478457743734, 90.41458786112179],
+    ],
+    details: "Details for Place 3",
+  },
+  {
+    type: "rectangle",
+    name: "Plot23",
+    color: "green",
+    coordinates: [
+      [23.834991, 90.416371],
+      [23.835246, 90.417959],
+      [23.834889, 90.418023],
+      [23.834653, 90.41642],
+    ],
+    details: "Details for Place 3",
+  },
 ];
 
 // markers
@@ -288,13 +444,55 @@ const markers = [
 ];
 
 export default function Map() {
+  const [hoveredPolygon, setHoveredPolygon] = useState(null);
+  const [selectedPolygon, setSelectedPolygon] = useState(null);
+
   return (
-    <MapContainer center={center} zoom={12}>
+    <MapContainer
+      center={center}
+      zoom={16}
+      scrollWheelZoom={true}
+      style={{ height: "100vh", width: "100%" }}
+    >
       {/* OPEN STREEN MAPS TILES */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <Polygon positions={bounds} fillColor="yellow" color="red" />
+
+      {shapes.map((shape, index) => (
+        <Polygon
+          key={index}
+          positions={shape.coordinates}
+          color={shape.color}
+          stroke="none"
+          pathOptions={{
+            color: hoveredPolygon === index ? 'red' : shape.color,
+            weight: 2,
+          }}
+          eventHandlers={{
+            mouseover: () => setHoveredPolygon(index),
+            mouseout: () => setHoveredPolygon(null),
+          }}
+        >
+          <Tooltip>{shape.name}</Tooltip>
+          <Popup>
+            <div>
+              <strong>{shape.name}</strong>
+              <br />
+              {shape.details}
+            </div>
+          </Popup>
+        </Polygon>
+      ))}
+
+      {markers.map((marker) => (
+        <Marker position={marker.geocode} icon={customIcon}>
+          <Popup>{marker.popUp}</Popup>
+        </Marker>
+      ))}
+      {/* <LocationMarker /> */}
       {/* WATERCOLOR CUSTOM TILES */}
       {/* <TileLayer
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -310,28 +508,18 @@ export default function Map() {
         subdomains={["mt0", "mt1", "mt2", "mt3"]}
       /> */}
 
-      {shapes.map((shape, index) => (
-        <Polygon key={index} positions={shape.coordinates} color={shape.color}>
-          <Tooltip>{shape.name}</Tooltip>
-          <Popup>
-            <div>
-              <strong>{shape.name}</strong>
-              <br />
-              {shape.details}
-            </div>
-          </Popup>
-        </Polygon>
-      ))}
+      {/* {bounds.map((shape, index) => (
+        <Polygon key={index} positions={shape} color="blue" />
+      ))} */}
 
       {/* <SVGOverlay attributes={{ stroke: "red" }} bounds={bounds}>
         <rect
-          x="0"
-          y="0"
+        
           width="100%"
           height="100%"
           stroke="red"
           stroke-width="5"
-          fill="green"
+          fill="none"
         />
         <text x="40%" y="50%" stroke="white">
           text
@@ -348,21 +536,21 @@ export default function Map() {
       >
         <Popup>Popup in CircleMarker</Popup>
       </CircleMarker> */}
-      <LocationMarker />
+
       {/* <Rectangle bounds={rectangle} pathOptions={blackOptions} /> */}
-      <MarkerClusterGroup
+      {/* <MarkerClusterGroup
         chunkedLoading
         iconCreateFunction={createClusterCustomIcon}
       >
-        {/* Mapping through the markers */}
+        Mapping through the markers
         {markers.map((marker) => (
           <Marker position={marker.geocode} icon={customIcon}>
             <Popup>{marker.popUp}</Popup>
           </Marker>
         ))}
 
-        {/* Hard coded markers */}
-        {/* <Marker position={[51.505, -0.09]} icon={customIcon}>
+        Hard coded markers
+        <Marker position={[51.505, -0.09]} icon={customIcon}>
           <Popup>This is popup 1</Popup>
         </Marker>
         <Marker position={[51.504, -0.1]} icon={customIcon}>
@@ -371,8 +559,8 @@ export default function Map() {
         <Marker position={[51.5, -0.09]} icon={customIcon}>
           <Popup>This is popup 3</Popup>
         </Marker>
-       */}
-      </MarkerClusterGroup>
+      
+      </MarkerClusterGroup> */}
     </MapContainer>
   );
 }
